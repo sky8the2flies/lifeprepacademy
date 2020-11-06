@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container-fluid p-0 m-0 w-100" style="height:30vh;background:url('https://lifeprep-academy.s3-us-west-1.amazonaws.com/LP+Background6.jpg') no-repeat center; background-size: 100%">
+<div class="container-fluid p-0 m-0 w-100" style="height:28vh;background:url('https://lifeprep-academy.s3-us-west-1.amazonaws.com/LP+Background6.jpg') no-repeat center; background-size: 100%">
 </div>
 
-<h1>Log In</h1>
-<form method="post" action="{% url 'login' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" class="btn btn-primary" value="login">
-  <input type="hidden" name="next" value="{{ next }}">
-</form>
-{% endblock %}
+<div class="mb-5 mt-3 ml-5">
+  <h1 class="display-4">Sign <span class="text-warning">In</span></h1>
+  <hr>
+  <form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-warning" value="Sign In">
+    <input type="hidden" name="next" value="{{ next }}">
+  </form>
+</div>
+{% endblock %}  
