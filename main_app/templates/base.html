@@ -10,6 +10,12 @@
 </head>
 <body>
 <div class="container-fluid">
+{% if user.is_authenticated %}
+    <h1>You Are Logged In</h1>
+    <a href="{% url 'logout' %}">LOG OUT</a>
+    {% else %}
+    <a href="{% url 'login' %}">LOG IN</a>
+{% endif %}
     {% block content%}
     {% endblock%}
 </div>
