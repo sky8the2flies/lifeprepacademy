@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="container-fluid p-0 m-0 w-100" style="height:30vh;background:url('https://lifeprep-academy.s3-us-west-1.amazonaws.com/LP+Background6.jpg') no-repeat center; background-size: 100%">
+</div>
+
 <h1>Sign Up</h1>
 <form method="post" action="{% url 'signup' %}">
   {% csrf_token %}
