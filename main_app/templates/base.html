@@ -30,9 +30,9 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Schools & Groups</a>
                             <div class="dropdown-menu text-center">
-                                {% comment %} <a href="{% url 'why' %}" class="nav-link">Why LifePrep?</a> {% endcomment %}
-                                {% comment %} <a href="{% url 'pricing' %}" class="nav-link">Plans and Pricing</a> {% endcomment %}
-                                {% comment %} <a href="{% url 'contact' %}" class="nav-link">Request a Demo</a> {% endcomment %}
+                                <a href="{% url 'why' %}" class="nav-link">Why LifePrep?</a>
+                                <a href="{% url 'pricing' %}" class="nav-link">Plans and Pricing</a>
+                                <a href="{% url 'contact' %}" class="nav-link">Request a Demo</a>
                         {% if user.is_authenticated %}
                                 {% comment %} <a href="{% url 'org_create' %}" class="dropdown-item">Add My Organization</a> {% endcomment %}
                          {% endif %}
@@ -41,7 +41,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Students & Parents</a>
                             <div class="dropdown-menu text-center">
-                            {% comment %} <a href="{% url 'intro' %}" class="nav-link">Introduction</a> {% endcomment %}
+                            <a href="{% url 'intro' %}" class="nav-link">Introduction</a>
                         </li>
                         {% if user.is_authenticated %}
                             <li class="nav-item dropdown">
@@ -61,7 +61,7 @@
                             </li>
                         {% endif %}
                         <li class="nav-item">
-                            {% comment %} <a href="{% url 'contact' %}" class="nav-link">Contact</a> {% endcomment %}
+                            <a href="{% url 'contact' %}" class="nav-link">Contact</a>
                         </li>
                     </ul>
                 </div>

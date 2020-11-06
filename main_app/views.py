@@ -16,3 +16,15 @@ def signup (request):
         
     form=UserCreationForm()
     return render(request, 'registration/signup.html', {'form':form})
+
+def contact_page(request):
+    return render(request, 'main_app/contact.html')
+
+def intro_page(request):
+    return render(request, 'main_app/intro.html')
+
+def pricing_page(request):
+    return render(request, 'main_app/pricing.html')
+
+def why_page(request):
+    return render(request, 'main_app/why.html')
