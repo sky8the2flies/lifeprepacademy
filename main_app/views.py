@@ -28,3 +28,6 @@ def pricing_page(request):
 
 def why_page(request):
     return render(request, 'main_app/why.html')
+
+def prepare1_page(request):
+    return render(request, 'main_app/prepare/prepare_1.html')

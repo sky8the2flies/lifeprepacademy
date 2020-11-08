@@ -10,6 +10,9 @@ urlpatterns = [
     path('contact/', views.contact_page, name='contact'),
     path('pricing/', views.pricing_page, name='pricing'),
     path('why/', views.why_page, name='why'),
+
+    # PREPARE
+    path('prepare/prepare_1', views.prepare1_page, name='prepare_1'),
     
     # AUTH
     path('accounts/signup/', views.signup, name="signup"),
