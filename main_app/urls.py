@@ -12,7 +12,10 @@ urlpatterns = [
     path('why/', views.why_page, name='why'),
 
     # PREPARE
-    path('prepare/prepare_1', views.prepare1_page, name='prepare_1'),
+    path('prepare/prepare_1/', views.prepare_1_page, name='prepare_1'),
+
+    # JOURNEY
+    path('journey/journey_1/', views.journey_1_page, name='journey_1'),
     
     # AUTH
     path('accounts/signup/', views.signup, name="signup"),
