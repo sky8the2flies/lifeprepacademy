@@ -13,10 +13,11 @@ urlpatterns = [
 
     # PREPARE
     path('prepare/prepare_1/', views.prepare_1_page, name='prepare_1'),
+    path('prepare/prepare_2/', views.prepare_2_page, name='prepare_2'),
 
     # JOURNEY
     path('journey/journey_1/', views.journey_1_page, name='journey_1'),
-    
+
     # AUTH
     path('accounts/signup/', views.signup, name="signup"),
 ]

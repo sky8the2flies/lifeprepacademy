@@ -32,5 +32,8 @@ def why_page(request):
 def prepare_1_page(request):
     return render(request, 'main_app/prepare/prepare_1.html')
 
+def prepare_2_page(request):
+    return render(request, 'main_app/prepare/prepare_2.html')
+
 def journey_1_page(request):
     return render(request, 'main_app/journey/journey_1.html')
