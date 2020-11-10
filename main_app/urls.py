@@ -10,6 +10,7 @@ urlpatterns = [
     path('contact/', views.contact_page, name='contact'),
     path('pricing/', views.pricing_page, name='pricing'),
     path('why/', views.why_page, name='why'),
+    path('dashboard/', views.dashboard_page, name='dashboard'),
 
     # PREPARE
     path('prepare/prepare_1/', views.prepare_1_page, name='prepare_1'),

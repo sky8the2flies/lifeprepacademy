@@ -20,6 +20,9 @@ def signup (request):
 def contact_page(request):
     return render(request, 'main_app/contact.html')
 
+def dashboard_page(request):
+    return render(request, 'main_app/dashboard.html')
+
 def intro_page(request):
     return render(request, 'main_app/intro.html')
 
