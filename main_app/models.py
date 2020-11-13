@@ -29,7 +29,7 @@ CATEGORIES = (
 )
 
 class Organization (models.Model):
-    name = models.CharField(max_length=200)
+    organization_name = models.CharField(max_length=200)
     contact_name = models.CharField(max_length=200)
     contact_title = models.CharField(max_length=200)
     contact_email = models.EmailField(('email address'))

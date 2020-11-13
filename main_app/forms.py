@@ -8,7 +8,7 @@ class OrganizationForm(ModelForm):
         labels = {
             
         }
-        fields = {
-            'name', 'contact_name', 'contact_title', 'contact_email', 'address', 'city', 'state', 'zip_code',
-            'county', 'phone', 'website_url', 'category', 'logo_url', 'promo_code', 'user',
-        }
+        fields = [
+            'organization_name', 'contact_name', 'contact_title', 'contact_email', 'address', 'city', 'state', 'zip_code',
+            'county', 'phone', 'website_url', 'category', 'logo_url', 'promo_code',
+        ]

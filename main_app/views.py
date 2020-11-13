@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.base import TemplateView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.db.models import Q
 
 from .forms import OrganizationForm
 from .models import Organization
@@ -38,11 +39,10 @@ def why_page(request):
 # ORGANIZATIONS
 
 def organization_create(request):
-    return render(request, 'main_app/organizations/create.html', 
-    # {
-    #     'org_form': org_form
-    # }
-    )
+    org_form = OrganizationForm()
+    return render(request, 'main_app/organizations/create.html', {
+        'org_form': org_form
+    })
 
 # PREPARE
 
