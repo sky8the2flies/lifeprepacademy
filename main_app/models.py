@@ -43,8 +43,7 @@ class Organization (models.Model):
     category = models.CharField(max_length=2, choices=CATEGORIES)
     logo_url = models.CharField(max_length = 200, default='https://www.resetyourbody.com/wp-content/uploads/COMPANY_LOGO/logo-default.png', blank='True')
     promo_code = models.CharField(max_length=200)
-
-    admin=models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -52,8 +51,8 @@ class Organization (models.Model):
 class Administrator (models.Model):
     admin = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
-    admin_email = models.EmailField(('email address'))
-    admin = models.ForeignKey(User, on_delete=models.CASCADE)
+    email = models.EmailField(('email address'))
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.admin
@@ -63,12 +62,14 @@ class Student (models.Model):
     student_email = models.EmailField(('email address'))
     parent_email = models.EmailField(('email address'))
     admin = models.ForeignKey(User, on_delete=models.CASCADE)
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.student
 
 class Notes (models.Model):
     note = models.CharField(max_length=2000)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.note
@@ -78,6 +79,7 @@ class FavSites (models.Model):
     description = models.CharField(max_length=500)
     url = models.CharField(max_length=200)
     logo_url = models.CharField(max_length=200)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.site

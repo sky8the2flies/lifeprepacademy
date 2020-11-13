@@ -12,6 +12,9 @@ urlpatterns = [
     path('why/', views.why_page, name='why'),
     path('dashboard/', views.dashboard_page, name='dashboard'),
 
+    # ORGANIZATIONS
+    path('organizations/create', views.organization_create, name='org_create'),
+
     # PREPARE
     path('prepare/prepare_1/', views.prepare_1_page, name='prepare_1'),
     path('prepare/prepare_2/', views.prepare_2_page, name='prepare_2'),
