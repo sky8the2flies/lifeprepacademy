@@ -1,17 +1,20 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div class="container-fluid px-3">
-        <div class="row min-vh-100">
-            <div class="col-md-8 col-lg-6 col-xl-5 d-flex align-items-center">
+<div class="container-fluid p-0 m-0 w-100" style="height:28vh;background:url('https://lifeprep-academy.s3-us-west-1.amazonaws.com/Backgrounds/LP+Background6.jpg') no-repeat center; background-size: 100%">
+    </div>
+    <div class="mb-4">
+        <h2 class="display-4 container text-center"><span class="text-warning">Create</span> Organization</h2>
+    </div>
+    <hr>
+    <div class="container-fluid px-1">
+        <div class="row justify-content-center min-vh-100">
+            <div class="col-md-4 col-lg-6 col-xl-8 d-flex align-items-center">
                 <div class="w-100 py-5 px-md-5 px-xl-6 position-relative">
-                    <div class="mb-5">
-                        <h2 class="text-center">Create Organization</h2>
-                    </div>
                     <form method="POST" action="{% url 'org_create' %}" class="form-validate">
                         {% csrf_token %}
                         {{ org_form|crispy }}
-                        <button class="btn btn-lg btn-block btn-info">Submit Organization</button>
+                        <button class="btn btn-sm btn-block btn-warning font-weight-bold">SUBMIT ORGANIZATION</button>
                         <input type="hidden" name="next" value="{{ next }}">
                     </form>
                 </div>
