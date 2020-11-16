@@ -41,9 +41,13 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Students & Parents</a>
                             <div class="dropdown-menu text-center">
+                            <a href="{% url 'intro' %}" class="nav-link">Introduction</a>
+                        {% if user.is_authenticated %}
                             <a href="{% url 'dashboard' %}" class="nav-link">Dashboard</a>
+                        {% else %}
                             <a href="{% url 'signup' %}" class="nav-link">Sign up</a>
                         </li>
+                        {% endif %}
 
                         {% if user.is_authenticated %}
                             <li class="nav-item dropdown">
