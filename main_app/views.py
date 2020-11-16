@@ -57,6 +57,9 @@ def prepare_3_page(request):
 
 def prepare_4_page(request):
     return render(request, 'main_app/prepare/prepare_4.html')
+
+def prepare_5_page(request):
+    return render(request, 'main_app/prepare/prepare_5.html')
     
 # JOURNEY
 
