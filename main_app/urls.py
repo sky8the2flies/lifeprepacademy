@@ -22,6 +22,7 @@ urlpatterns = [
     path('prepare/prepare_4/', views.prepare_4_page, name='prepare_4'),
     path('prepare/prepare_5/', views.prepare_5_page, name='prepare_5'),
     path('prepare/prepare_6/', views.prepare_6_page, name='prepare_6'),
+    path('prepare/prepare_7/', views.prepare_7_page, name='prepare_7'),
 
     # JOURNEY
     path('journey/journey_1/', views.journey_1_page, name='journey_1'),
