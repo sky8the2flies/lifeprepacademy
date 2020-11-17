@@ -28,6 +28,7 @@ urlpatterns = [
 
     # JOURNEY
     path('journey/journey_1/', views.journey_1_page, name='journey_1'),
+    path('journey/journey_12/', views.journey_12_page, name='journey_12'),
 
     # AUTH
     path('accounts/signup/', views.signup, name="signup"),
