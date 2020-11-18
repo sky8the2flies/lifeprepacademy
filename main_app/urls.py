@@ -28,6 +28,8 @@ urlpatterns = [
 
     # JOURNEY
     path('journey/journey_1/', views.journey_1_page, name='journey_1'),
+    path('journey/journey_2/', views.journey_2_page, name='journey_2'),
+    path('journey/journey_3/', views.journey_3_page, name='journey_3'),
     path('journey/journey_12/', views.journey_12_page, name='journey_12'),
 
     # AUTH
