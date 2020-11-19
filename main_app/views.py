@@ -44,6 +44,18 @@ def organization_create(request):
         'org_form': org_form
     })
 
+def organization_dashboard(request):
+    if not request.user.id:
+        return redirect('login')
+    if not request.user.promo_code:
+        return redirect('login')
+    try:
+        organization=Organization.objects.get(promo_code=request.user.promo_code)
+    except:
+        return redirect('login')
+
+    return render(request, 'main_app/organizations/org_dashboard.html', {'organization':organization})
+
 # PREPARE
 
 def prepare_1_page(request):

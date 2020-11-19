@@ -1,7 +1,7 @@
 from django.db import models
-from django.contrib.auth.models import User
-
+from django.urls import reverse
 from phone_field import PhoneField
+from accounts.models import User
 
 STATES = (
     ('AL', 'Alabama'),('AK', 'Alaska'),('AS', 'American Samoa'),
@@ -46,7 +46,12 @@ class Organization (models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.organization_name
+    
+    def get_absolute_url(self):
+        return reverse("org_dashboard", kwargs={"pk": self.pk})
+    
+    
 
 class Administrator (models.Model):
     admin = models.CharField(max_length=200)
