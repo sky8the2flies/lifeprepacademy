@@ -1,7 +1,10 @@
-from django.shortcuts import render, redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib.auth import login
-from .forms import RegisterForm
+from django.views.generic import DetailView
+from django.views.generic.edit import UpdateView
 
+from .forms import RegisterForm
 from main_app.models import Organization, Administrator
 
 
@@ -21,7 +24,27 @@ def signup(request):
             Administrator.objects.create(
                 user_id=user.id, organization_id=organization.id)
             login(request, user)
-            return redirect("dashboard")
+            return redirect("profile_update")
 
     form = RegisterForm()
     return render(request, 'registration/signup.html', {'form': form})
+
+
+class ProfileDetailView(DetailView):
+    model = Administrator
+    template_name = 'registration/profile/index.html'
+
+    def get_object(self):
+        return get_object_or_404(Administrator, user=self.request.user.id)
+
+
+class ProfileUpdateView(LoginRequiredMixin, UpdateView):
+    model = Administrator
+    template_name = 'registration/profile/update.html'
+    fields = ['admin', 'title', 'email']
+
+    def get_object(self):
+        return get_object_or_404(Administrator, user=self.request.user.id)
+
+    def get_success_url(self):
+        return reverse('org_dashboard')
