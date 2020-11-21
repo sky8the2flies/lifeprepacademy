@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from phone_field import PhoneField
+
 from accounts.models import User
 
 STATES = (
@@ -47,7 +48,7 @@ class Organization (models.Model):
     category = models.CharField(max_length=2, choices=CATEGORIES)
     logo_url = models.CharField(
         max_length=200, default='https://www.resetyourbody.com/wp-content/uploads/COMPANY_LOGO/logo-default.png', blank='True')
-    promo_code = models.CharField(max_length=200)
+    promo_code = models.CharField(max_length=200, unique=True)
 
     def __str__(self):
         return self.organization_name

@@ -12,7 +12,7 @@ def signup(request):
     if request.method == "POST":
         form = RegisterForm(request.POST)
         if form.is_valid():
-            promo = request.POST.get('promo_code')
+            promo = request.POST.get('promo_code').upper()
             try:
                 organization = Organization.objects.get(promo_code=promo)
             except Organization.DoesNotExist:
