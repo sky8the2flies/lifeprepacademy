@@ -3,7 +3,7 @@ from django.views.generic.base import TemplateView
 from django.db.models import Q
 
 from .forms import OrganizationForm
-from .models import Organization
+from .models import Organization, Administrator
 
 
 class HomePageView (TemplateView):
@@ -44,13 +44,22 @@ def organization_dashboard(request):
         return redirect('login')
     if not request.user.promo_code:
         return redirect('login')
+    # try:
+    #     organization = Organization.objects.get(
+    #         promo_code=request.user.promo_code)
+    # except Organization.DoesNotExist:
+    #     # TODO organization not found
+    #     return redirect('login')
     try:
-        organization = Organization.objects.get(
-            promo_code=request.user.promo_code)
-    except Organization.DoesNotExist:
+        admin = Administrator.objects.get(user=request.user.id)
+    except Administrator.DoesNotExist:
+        # TODO admin not found
         return redirect('login')
 
-    return render(request, 'main_app/organizations/org_dashboard.html', {'organization': organization})
+    return render(request, 'main_app/organizations/org_dashboard.html', {
+        # 'organization': organization,
+        'admin': admin,
+    })
 
 # PREPARE
 

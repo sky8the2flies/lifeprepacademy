@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from phone_field import PhoneField
+
 from accounts.models import User
 
 STATES = (
@@ -47,7 +48,7 @@ class Organization (models.Model):
     category = models.CharField(max_length=2, choices=CATEGORIES)
     logo_url = models.CharField(
         max_length=200, default='https://www.resetyourbody.com/wp-content/uploads/COMPANY_LOGO/logo-default.png', blank='True')
-    promo_code = models.CharField(max_length=200)
+    promo_code = models.CharField(max_length=200, unique=True)
 
     def __str__(self):
         return self.organization_name
@@ -57,7 +58,7 @@ class Organization (models.Model):
 
 
 class Administrator (models.Model):
-    admin = models.CharField(max_length=200, blank=True)
+    admin_name = models.CharField(max_length=200, blank=True)
     title = models.CharField(max_length=200, blank=True)
     email = models.EmailField(('email address'), blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -68,7 +69,7 @@ class Administrator (models.Model):
 
 
 class Student (models.Model):
-    student = models.CharField(max_length=200)
+    student_name = models.CharField(max_length=200)
     student_email = models.EmailField(('email address'))
     parent_email = models.EmailField(('email address'))
     admin = models.ForeignKey(User, on_delete=models.CASCADE)
