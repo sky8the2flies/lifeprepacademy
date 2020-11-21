@@ -41,7 +41,7 @@ class ProfileDetailView(DetailView):
 class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = Administrator
     template_name = 'registration/profile/update.html'
-    fields = ['admin', 'title', 'email']
+    fields = ['admin_name', 'title', 'email']
 
     def get_object(self):
         return get_object_or_404(Administrator, user=self.request.user.id)

@@ -58,7 +58,7 @@ class Organization (models.Model):
 
 
 class Administrator (models.Model):
-    admin = models.CharField(max_length=200, blank=True)
+    admin_name = models.CharField(max_length=200, blank=True)
     title = models.CharField(max_length=200, blank=True)
     email = models.EmailField(('email address'), blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -69,7 +69,7 @@ class Administrator (models.Model):
 
 
 class Student (models.Model):
-    student = models.CharField(max_length=200)
+    student_name = models.CharField(max_length=200)
     student_email = models.EmailField(('email address'))
     parent_email = models.EmailField(('email address'))
     admin = models.ForeignKey(User, on_delete=models.CASCADE)
