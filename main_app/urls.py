@@ -39,7 +39,4 @@ urlpatterns = [
     path('journey/journey_8/', views.journey_8_page, name='journey_8'),
     path('journey/journey_9/', views.journey_9_page, name='journey_9'),
     path('journey/journey_12/', views.journey_12_page, name='journey_12'),
-
-    # AUTH
-    path('accounts/signup/', views.signup, name="signup"),
 ]
