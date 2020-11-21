@@ -15,7 +15,7 @@ urlpatterns = [
 
     # ORGANIZATIONS
     path('organizations/create', views.organization_create, name='org_create'),
-    # path('organizations/details', views.organization_details, name='org_details'),
+    path('organizations/students/create/', views.student_create, name='student_create'),
 
     # PREPARE
     path('prepare/prepare_1/', views.prepare_1_page, name='prepare_1'),
