@@ -34,5 +34,9 @@ urlpatterns = [
     path('journey/journey_3/', views.journey_3_page, name='journey_3'),
     path('journey/journey_4/', views.journey_4_page, name='journey_4'),
     path('journey/journey_5/', views.journey_5_page, name='journey_5'),
+    path('journey/journey_6/', views.journey_6_page, name='journey_6'),
+    path('journey/journey_7/', views.journey_7_page, name='journey_7'),
+    path('journey/journey_8/', views.journey_8_page, name='journey_8'),
+    path('journey/journey_9/', views.journey_9_page, name='journey_9'),
     path('journey/journey_12/', views.journey_12_page, name='journey_12'),
 ]
