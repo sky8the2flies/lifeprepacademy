@@ -75,58 +75,33 @@ def student_create(request):
 
 def prepare_1_page(request):
     return render(request, 'main_app/prepare/prepare_1.html')
-
-
 def prepare_2_page(request):
     return render(request, 'main_app/prepare/prepare_2.html')
-
-
 def prepare_3_page(request):
     return render(request, 'main_app/prepare/prepare_3.html')
-
-
 def prepare_4_page(request):
     return render(request, 'main_app/prepare/prepare_4.html')
-
-
 def prepare_5_page(request):
     return render(request, 'main_app/prepare/prepare_5.html')
-
-
 def prepare_6_page(request):
     return render(request, 'main_app/prepare/prepare_6.html')
-
-
 def prepare_7_page(request):
     return render(request, 'main_app/prepare/prepare_7.html')
-
-
 def prepare_8_page(request):
     return render(request, 'main_app/prepare/prepare_8.html')
-
-
 def prepare_9_page(request):
     return render(request, 'main_app/prepare/prepare_9.html')
 
 # JOURNEY
 
-
 def journey_1_page(request):
     return render(request, 'main_app/journey/journey_1.html')
-
-
 def journey_2_page(request):
     return render(request, 'main_app/journey/journey_2.html')
-
-
 def journey_3_page(request):
     return render(request, 'main_app/journey/journey_3.html')
-
-
 def journey_4_page(request):
     return render(request, 'main_app/journey/journey_4.html')
-
-
 def journey_5_page(request):
     return render(request, 'main_app/journey/journey_5.html')
 def journey_6_page(request):
@@ -137,7 +112,9 @@ def journey_8_page(request):
     return render(request, 'main_app/journey/journey_8.html')
 def journey_9_page(request):
     return render(request, 'main_app/journey/journey_9.html')
-
-
+def journey_10_page(request):
+    return render(request, 'main_app/journey/journey_10.html')
+def journey_11_page(request):
+    return render(request, 'main_app/journey/journey_11.html')
 def journey_12_page(request):
     return render(request, 'main_app/journey/journey_12.html')
