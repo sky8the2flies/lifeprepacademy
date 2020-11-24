@@ -44,4 +44,7 @@ urlpatterns = [
     path('journey/journey_13/', views.journey_13_page, name='journey_13'),
     path('journey/journey_14/', views.journey_14_page, name='journey_14'),
     path('journey/journey_15/', views.journey_15_page, name='journey_15'),
+    path('journey/journey_16/', views.journey_16_page, name='journey_16'),
+    path('journey/journey_17/', views.journey_17_page, name='journey_17'),
+    path('journey/journey_18/', views.journey_18_page, name='journey_18'),
 ]
