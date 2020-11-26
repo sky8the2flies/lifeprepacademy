@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid p-0 m-0 w-100" style="height:28vh;background:url('https://lifeprep-academy.s3-us-west-1.amazonaws.com/Backgrounds/LP+Background6.jpg') no-repeat center; background-size: 100%">
+</div>
+<div class="container text-center mt-3 mb-4">
+      <h2 class="display-4 container text-center">Going on the <span class="text-warning">Journey</span></h2>
+      <h3 class="text-center">Life After High School</h3>
+</div>
+
+
+<div>
+    {% for site in sites %}
+    <h1>{{ site.site }}</h1>
+    <img src="{{ site.logo_url }}"/>
+    
+    {% empty %}
+
+    <h3>No Results Found</h3>
+
+    {% endfor %}
+</div>
+{% endblock %}

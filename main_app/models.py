@@ -32,6 +32,9 @@ CATEGORIES = (
     ('CH', 'Church')
 )
 
+SITE_CATEGORIES = (
+    ('kids', 'K-5 Sites'), ('science', 'Science'),
+)
 
 class Organization (models.Model):
     organization_name = models.CharField(max_length=200)
@@ -55,7 +58,6 @@ class Organization (models.Model):
 
     def get_absolute_url(self):
         return reverse("org_dashboard", kwargs={"pk": self.pk})
-
 
 class Administrator (models.Model):
     admin_name = models.CharField(max_length=200, blank=True)
@@ -86,12 +88,12 @@ class Notes (models.Model):
         return self.note
 
 
-class FavSites (models.Model):
+class Site (models.Model):
     site = models.CharField(max_length=200)
     description = models.CharField(max_length=500)
     url = models.CharField(max_length=200)
     logo_url = models.CharField(max_length=200)
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    category = models.CharField(max_length=100, choices=SITE_CATEGORIES)
 
     def __str__(self):
         return self.site
