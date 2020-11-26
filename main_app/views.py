@@ -130,3 +130,7 @@ def journey_17_page(request):
     return render(request, 'main_app/journey/journey_17.html')
 def journey_18_page(request):
     return render(request, 'main_app/journey/journey_18.html')
+def journey_19_page(request):
+    return render(request, 'main_app/journey/journey_19.html')
+def journey_20_page(request):
+    return render(request, 'main_app/journey/journey_20.html')
