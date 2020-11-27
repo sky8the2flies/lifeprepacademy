@@ -77,7 +77,7 @@ def journey_page(request, pg):
 def site_list(request, category):
     sites=[]
     try:
-        sites=Site.objects.filter(category=category)
+        sites=Site.objects.filter(category=category).order_by('site')
     except Site.DoesNotExist:
         pass
     print(sites)
