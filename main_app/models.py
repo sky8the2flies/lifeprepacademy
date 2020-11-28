@@ -33,7 +33,7 @@ CATEGORIES = (
 )
 
 SITE_CATEGORIES = (
-    ('kids', 'K-5 Sites'), ('science', 'Science'),
+    ('kids', 'K-5 Sites'), ('science', 'Science'), ('search', 'Search Engines'), ('general', 'General Scholarships'), ('foster', 'Foster Youth Scholarships'), ('immigrant', 'Immigrant Youth Scholarships'), ('afam', 'African American Scholarships'), ('asam', 'Asian-Pacific American Scholarships'), ('hiam', 'Hispanic American Scholarships'), ('ntam', 'Native American Scholarships'), ('lgbtq', 'LGBTQ+ Scholarships'), ('women', 'Women Scholarships')
 )
 
 class Organization (models.Model):
@@ -89,7 +89,7 @@ class Notes (models.Model):
 
 
 class Site (models.Model):
-    site = models.CharField(max_length=200)
+    site_name = models.CharField(max_length=200)
     description = models.CharField(max_length=500)
     url = models.CharField(max_length=200)
     logo_url = models.CharField(max_length=200)

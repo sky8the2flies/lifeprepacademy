@@ -4,14 +4,24 @@
 </div>
 <div class="container text-center mt-3 mb-4">
       <h2 class="display-4 container text-center">Going on the <span class="text-warning">Journey</span></h2>
-      <h3 class="text-center">Life After High School</h3>
+      <h3 class="text-center">Homework Help Sites</h3>
+    {% comment %} {% for site in sites %}
+    <h2 class="pb-4">{{ site.category }}</h2>
+    {% endfor %} {% endcomment %}
 </div>
+<hr>
 
 
-<div>
+<div class="container mt-3 mb-5">
     {% for site in sites %}
-    <h1>{{ site.site }}</h1>
-    <img src="{{ site.logo_url }}"/>
+    {% comment %} <h2 class="pb-4">{{ site.category }}</h2> {% endcomment %}
+    <div class="">
+    <a href="{{ site.url }}" style="font-size: 24px;" target="_blank" class="mb-4">{{ site.site }}</a>
+    <br>
+    <img src="{{ site.logo_url }}" class="pb-4 mt-3 mr-5" style="width: 150px;"/>  
+    <p class="pb-0">{{ site.description }}</p>
+    <hr class="pb-2">
+    </div>
     
     {% empty %}
 
@@ -19,4 +29,5 @@
 
     {% endfor %}
 </div>
+
 {% endblock %}
