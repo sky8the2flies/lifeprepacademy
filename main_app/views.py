@@ -46,8 +46,6 @@ def organization_dashboard(request):
         'student_form': student_form,
         'admin': admin,
     })
-# <QueryDict: {'csrfmiddlewaretoken': ['iJQx29qrimwalp9JyC20BofqtCLxVPSZB2w0PjBwwyJpIJERTlBCoaM7KAkb8UkF'], 'student_name': ['Devin2'], 'student_email': ['devin2@gmail.com'], 'parent_email': ['parent@gmail.com'], 'password': ['aabbcc123'], 'admin': ['Devin'], 'organization': ['Crenshaw High'], 'next': ['']}>
-
 
 def student_create(request):
     if request.method == 'POST':
@@ -77,11 +75,10 @@ def journey_page(request, pg):
 def site_list(request, category):
     sites=[]
     try:
-        sites=Site.objects.filter(category=category).order_by('site_name')
+        sites=Site.objects.filter(category=category).order_by('site')
     except Site.DoesNotExist:
         pass
+    print(sites)
     return render(request, 'main_app/sites/category.html', {
         'sites':sites
     })
-
-# {% for site in sites %}
