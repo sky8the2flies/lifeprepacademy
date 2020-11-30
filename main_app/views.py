@@ -70,6 +70,11 @@ def prepare_page(request, pg):
 def journey_page(request, pg):
     return render(request, f'main_app/journey/journey_{pg}.html')
 
+# JOURNEY
+
+def healthy_page(request, pg):
+    return render(request, f'main_app/healthy/healthy_{pg}.html')
+
 # SITES
 
 def site_list(request, category):

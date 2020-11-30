@@ -23,6 +23,9 @@ urlpatterns = [
     # JOURNEY
     path('journey/<int:pg>/', views.journey_page, name='journey'),
 
+    # HEALTHY
+    path('healthy/<int:pg>/', views.healthy_page, name='healthy'),
+
     # SITES
     path('category/<str:category>/', views.site_list, name='site_list')
 ]
