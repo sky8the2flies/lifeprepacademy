@@ -24,6 +24,9 @@ def pricing_page(request):
 def why_page(request):
     return render(request, 'main_app/why.html')
 
+def wellsfargo_page(request):
+    return render(request, 'main_app/wellsfargo.html')
+
 # ORGANIZATIONS
 
 def organization_create(request):

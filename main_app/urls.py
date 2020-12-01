@@ -12,6 +12,7 @@ urlpatterns = [
     path('why/', views.why_page, name='why'),
     path('dashboard/', views.dashboard_page, name='dashboard'),
     path('d/', views.organization_dashboard, name='org_dashboard'),
+    path('wellsfargo', views.wellsfargo_page, name='wellsfargo'),
 
     # ORGANIZATIONS
     path('organizations/create', views.organization_create, name='org_create'),
