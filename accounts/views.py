@@ -20,7 +20,9 @@ def signup(request):
                     'form': form,
                     'err': 'Promo code did not match an organization.'
                 })
-            user = form.save()
+            user = form.save(commit=False)
+            user.admin = True
+            user.save()
             Administrator.objects.create(
                 user_id=user.id, organization_id=organization.id)
             login(request, user)

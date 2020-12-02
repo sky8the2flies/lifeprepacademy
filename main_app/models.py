@@ -67,16 +67,21 @@ class Administrator (models.Model):
     def __str__(self):
         return self.user.username
 
+
 class Student (models.Model):
     student_name = models.CharField(max_length=200)
     student_email = models.EmailField(('student Email Address'))
     parent_email = models.EmailField(('parent Email Address'))
     password = models.CharField(max_length=100)
-    admin = models.ForeignKey(User, on_delete=models.CASCADE)
+    admin = models.ForeignKey(
+        User, on_delete=models.CASCADE)
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='current_user')
 
     def __str__(self):
         return self.student_name
+
 
 class Notes (models.Model):
     note = models.CharField(max_length=2000)
