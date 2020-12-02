@@ -32,6 +32,13 @@ CATEGORIES = (
     ('CH', 'Church')
 )
 
+SITE_CATEGORIES = (
+    ('kids', 'K-5 Sites'), ('science', 'Science'), ('search', 'Search Engines'), ('general', 'General Scholarships'), ('foster', 'Foster Youth Scholarships'), ('immigrant', 'Immigrant Youth Scholarships'), ('afam', 'African American Scholarships'), ('asam', 'Asian-Pacific American Scholarships'), ('hiam', 'Hispanic American Scholarships'), ('ntam', 'Native American Scholarships'), ('lgbtq', 'LGBTQ+ Scholarships'), ('women', 'Women Scholarships'), ('favs', 'Favorites')
+)
+
+USER_FAVORITE = (
+    ('y', 'Y'), ('n', 'N')
+)
 
 class Organization (models.Model):
     organization_name = models.CharField(max_length=200)
@@ -56,7 +63,6 @@ class Organization (models.Model):
     def get_absolute_url(self):
         return reverse("org_dashboard", kwargs={"pk": self.pk})
 
-
 class Administrator (models.Model):
     admin_name = models.CharField(max_length=200, blank=True)
     title = models.CharField(max_length=200, blank=True)
@@ -71,6 +77,7 @@ class Administrator (models.Model):
 class Student (models.Model):
     student_name = models.CharField(max_length=200)
     student_email = models.EmailField(('student Email Address'))
+    # parent_name = models.CharField(max_length=200)
     parent_email = models.EmailField(('parent Email Address'))
     password = models.CharField(max_length=100)
     admin = models.ForeignKey(
@@ -91,12 +98,14 @@ class Notes (models.Model):
         return self.note
 
 
-class FavSites (models.Model):
+class Site (models.Model):
     site = models.CharField(max_length=200)
     description = models.CharField(max_length=500)
     url = models.CharField(max_length=200)
     logo_url = models.CharField(max_length=200)
-    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    category = models.CharField(max_length=100, choices=SITE_CATEGORIES)
+    # keyword = models.CharField(max_length=500)
+    # favorite = models.CharField(max_length=1, choices=USER_FAVORITE)
 
     def __str__(self):
         return self.site
