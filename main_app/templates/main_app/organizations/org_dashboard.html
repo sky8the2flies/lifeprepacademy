@@ -4,12 +4,16 @@
 <h1>{{admin.admin_name}}</h1>
 
 <form method="POST" action="{% url 'student_create' %}" class="form-validate">
-    {% csrf_token %}
-    {{ student_form|crispy }}
+    {% csrf_token %} {{ student_form|crispy }} {{register_form|crispy}}
     <button class="btn btn-lg btn-block btn-info">Add Student</button>
-    <input type="hidden" name="admin_id" value="{{ admin.id }}">
-    <input type="hidden" name="organization_id" value="{{ admin.organization.id }}">
-    <input type="hidden" name="next" value="{{ next }}">
+    <input type="hidden" name="admin_id" value="{{ admin.id }}" />
+    <input
+        type="hidden"
+        name="organization_id"
+        value="{{ admin.organization.id }}"
+    />
+    <input type="hidden" name="next" value="{{ next }}" />
 </form>
-
-{% endblock %}
+{% for student in student_list %}
+<h1>{{student}}</h1>
+{% endfor %} {% endblock %}

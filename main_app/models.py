@@ -33,12 +33,14 @@ CATEGORIES = (
 )
 
 SITE_CATEGORIES = (
-    ('kids', 'K-5 Sites'), ('science', 'Science'), ('search', 'Search Engines'), ('general', 'General Scholarships'), ('foster', 'Foster Youth Scholarships'), ('immigrant', 'Immigrant Youth Scholarships'), ('afam', 'African American Scholarships'), ('asam', 'Asian-Pacific American Scholarships'), ('hiam', 'Hispanic American Scholarships'), ('ntam', 'Native American Scholarships'), ('lgbtq', 'LGBTQ+ Scholarships'), ('women', 'Women Scholarships'), ('favs', 'Favorites')
+    ('kids', 'K-5 Sites'), ('science', 'Science'), ('search', 'Search Engines'), ('general', 'General Scholarships'), ('foster', 'Foster Youth Scholarships'), ('immigrant', 'Immigrant Youth Scholarships'), ('afam', 'African American Scholarships'), ('asam',
+                                                                                                                                                                                                                                                          'Asian-Pacific American Scholarships'), ('hiam', 'Hispanic American Scholarships'), ('ntam', 'Native American Scholarships'), ('lgbtq', 'LGBTQ+ Scholarships'), ('women', 'Women Scholarships'), ('favs', 'Favorites')
 )
 
 USER_FAVORITE = (
     ('y', 'Y'), ('n', 'N')
 )
+
 
 class Organization (models.Model):
     organization_name = models.CharField(max_length=200)
@@ -63,6 +65,7 @@ class Organization (models.Model):
     def get_absolute_url(self):
         return reverse("org_dashboard", kwargs={"pk": self.pk})
 
+
 class Administrator (models.Model):
     admin_name = models.CharField(max_length=200, blank=True)
     title = models.CharField(max_length=200, blank=True)
@@ -79,9 +82,8 @@ class Student (models.Model):
     student_email = models.EmailField(('student Email Address'))
     # parent_name = models.CharField(max_length=200)
     parent_email = models.EmailField(('parent Email Address'))
-    password = models.CharField(max_length=100)
     admin = models.ForeignKey(
-        User, on_delete=models.CASCADE)
+        Administrator, on_delete=models.CASCADE)
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='current_user')

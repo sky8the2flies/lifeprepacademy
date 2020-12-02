@@ -3,6 +3,7 @@ from django.views.generic.base import TemplateView
 from django.db.models import Q
 
 from accounts.models import User
+from accounts.forms import StudentRegister
 
 from .forms import OrganizationForm, StudentForm
 from .models import Organization, Administrator, Student, Site
@@ -53,29 +54,41 @@ def organization_dashboard(request):
     except Administrator.DoesNotExist:
         # TODO admin not found
         return redirect('login')
+    try:
+        student_list = Student.objects.filter(
+            admin=admin.id).order_by('student_name')
+    except:
+        pass  # TODO
     student_form = StudentForm()
+    register_form = StudentRegister()
 
     return render(request, 'main_app/organizations/org_dashboard.html', {
         'student_form': student_form,
+        'register_form': register_form,
+        'student_list': student_list,
         'admin': admin,
     })
 
 
 def student_create(request):
     if request.method == 'POST':
-        user = User.objects.create(username=request.POST.get(
-            'student_email'), password=request.POST.get('password'))
-        Student.objects.create(student_name=request.POST.get('student_name'),
-                               student_email=request.POST.get('student_email'),
-                               parent_email=request.POST.get('parent_email'),
-                               password=request.POST.get('password'),
-                               admin_id=request.POST.get('admin_id'),
-                               organization_id=request.POST.get(
-                                   'organization_id')
-                               user_id=user.id
-                               )
+        form = StudentRegister(request.POST)
+        if form.is_valid():
+            user = form.save()
+            Student.objects.create(student_name=request.POST.get('student_name'),
+                                   student_email=request.POST.get(
+                                       'username'),
+                                   parent_email=request.POST.get(
+                                       'parent_email'),
+                                   admin_id=request.POST.get('admin_id'),
+                                   organization_id=request.POST.get(
+                                   'organization_id'),
+                                   user_id=user.id
+                                   )
 
-        return redirect('org_dashboard')
+            return redirect('org_dashboard')
+        # TODO ERROR ON USER FORM
+        print('error on user form')
     return redirect('org_dashboard')
 
 # PREPARE
