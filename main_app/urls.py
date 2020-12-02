@@ -1,4 +1,3 @@
-
 from django.urls import path, include
 
 from . import views
@@ -13,7 +12,7 @@ urlpatterns = [
     path('dashboard/', views.dashboard_page, name='dashboard'),
     path('d/', views.organization_dashboard, name='org_dashboard'),
     path('wellsfargo', views.wellsfargo_page, name='wellsfargo'),
-
+   
     # ORGANIZATIONS
     path('organizations/create', views.organization_create, name='org_create'),
     path('organizations/students/create/', views.student_create, name='student_create'),

@@ -27,6 +27,7 @@ def why_page(request):
 def wellsfargo_page(request):
     return render(request, 'main_app/wellsfargo.html')
 
+
 # ORGANIZATIONS
 
 def organization_create(request):
