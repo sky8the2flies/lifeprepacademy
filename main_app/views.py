@@ -8,7 +8,6 @@ from accounts.forms import StudentRegister
 from .forms import OrganizationForm, StudentForm
 from .models import Organization, Administrator, Student, Site
 
-
 class HomePageView (TemplateView):
     template_name = "main_app/home.html"
 
@@ -38,7 +37,6 @@ def wellsfargo_page(request):
 
 
 # ORGANIZATIONS
-
 def organization_create(request):
     org_form = OrganizationForm()
     return render(request, 'main_app/organizations/create.html', {
@@ -93,24 +91,20 @@ def student_create(request):
 
 # PREPARE
 
-
 def prepare_page(request, pg):
     return render(request, f'main_app/prepare/prepare_{pg}.html')
 
 # JOURNEY
-
 
 def journey_page(request, pg):
     return render(request, f'main_app/journey/journey_{pg}.html')
 
 # JOURNEY
 
-
 def healthy_page(request, pg):
     return render(request, f'main_app/healthy/healthy_{pg}.html')
 
 # SITES
-
 
 def site_list(request, category):
     sites = []
@@ -120,5 +114,7 @@ def site_list(request, category):
         pass
     print(sites)
     return render(request, 'main_app/sites/category.html', {
-        'sites': sites
+        'sites':sites,
+        'category':category.capitalize(),
     })
+
