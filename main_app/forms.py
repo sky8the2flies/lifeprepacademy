@@ -25,5 +25,5 @@ class StudentForm(forms.ModelForm):
         }
 
         fields = [
-            'student_name', 'student_email', 'parent_email', 'password', 
+            'student_name', 'student_email', 'parent_email', 'password',
         ]
